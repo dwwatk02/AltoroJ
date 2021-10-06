@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -17,3 +18,9 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: HCLAppScanOnCloud@2
+  inputs:
+    AppSecTestService: 'asoc connection'
+    applications: '4d5b6b9b-ec4c-4f98-b16b-b8390c7fa2d9'
+    scanname: 'altoro from ADO'
+    scantype: 'static'
