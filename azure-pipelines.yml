@@ -24,3 +24,4 @@ steps:
     applications: '4d5b6b9b-ec4c-4f98-b16b-b8390c7fa2d9'
     scanname: 'altoro from ADO'
     scantype: 'static'
+    scanMethod: 'IRX'
