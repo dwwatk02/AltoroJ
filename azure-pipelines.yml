@@ -20,8 +20,8 @@ steps:
   displayName: 'Run a multi-line script'
 - task: HCLAppScanOnCloud@2
   inputs:
-    AppSecTestService: 'asoc connection'
-    applications: '4d5b6b9b-ec4c-4f98-b16b-b8390c7fa2d9'
-    scanname: 'altoro from ADO'
+    AppSecTestService: 'ASoC'
+    applications: 'a384f3bf-e585-4e34-960c-21b4b50c79e9'
+    scanname: 'test from ADO'
     scantype: 'static'
     scanMethod: 'IRX'
