@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Configuration enableSecrets="true" sourceCodeOnly="true">
+  <Targets>
+    <Target path="">
+      <Exclude>AltoroJ\.gradle\buildOutputCleanup\cache.properties</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\swagger-ui-bundle.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\fonts\droid-sans-v6-latin-regular.svg</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lang\ru.js</Exclude>
+      <Exclude>AltoroJ\src\com\ibm\security\appscan\altoromutual\util\OperationsUtil.java</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lang\pt.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\handlebars-2.0.0.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\swagger-ui.min.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\jquery.wiggle.min.js</Exclude>
+      <Exclude>AltoroJ\src\com\ibm\security\appscan\altoromutual\util\DBUtil.java</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\jquery-1.8.0.min.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lang\es.js</Exclude>
+      <Exclude>AltoroJ\.gradle\7.4.2\dependencies-accessors\gc.properties</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\highlight.7.3.pack.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\swagger-ui.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\backbone-min.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\index.html</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\fonts\droid-sans-v6-latin-700.svg</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lang\en.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lang\translator.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\swagger-oauth.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\underscore-min.js</Exclude>
+      <Exclude>AltoroJ\.gradle\7.4.2\gc.properties</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\marked.js</Exclude>
+      <Exclude>AltoroJ\src\com\ibm\security\appscan\altoromutual\util\ServletUtil.java</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\oauth2-redirect.html</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\jquery.ba-bbq.min.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\swagger-ui-standalone-preset.js</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\lib\jquery.slideto.min.js</Exclude>
+      <Exclude>AltoroJ\.gradle\vcs-1\gc.properties</Exclude>
+      <Exclude>AltoroJ\WebContent\swagger\o2c.html</Exclude>
+    </Target>
+  </Targets>
+</Configuration>
