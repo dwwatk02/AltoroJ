@@ -20,8 +20,14 @@ steps:
   displayName: 'Run a multi-line script'
 - task: HCLAppScanOnCloud@2
   inputs:
-    AppSecTestService: 'ASoC'
-    applications: 'a384f3bf-e585-4e34-960c-21b4b50c79e9'
-    scanname: 'test from ADO'
+    AppSecTestService: 'New ASoC'
+    applications: 'e7cac85d-7dea-408a-9b17-9889c9235248'
+    scanname: 'ADO Test'
     scantype: 'static'
     scanMethod: 'IRX'
+    ScanSpeedOptions: 'balanced'
+    intervention: false
+    FailBuildConfiguration: true
+    FailBuildChoice: 'conditionset'
+    buildfailCritical: true
+    buildfailconditionCritical: '0'
