@@ -8,7 +8,7 @@ serviceUrl="cloud.appscan.com"
 # as.botexam
 serviceUrl="as.botexam.net"
 asocApiKeyId="local_61431386-e780-ad0a-2e80-567f0376cf55"
-asocApiKeyId="aAFZ8thJEdEVKOLyOKZAkm0l83paVMbPFMNilv8OBa6j"
+asocApiKeySecret="aAFZ8thJEdEVKOLyOKZAkm0l83paVMbPFMNilv8OBa6j"
 appId="b77bfb68-e618-4df2-a833-f0a781970b8f"
 scanName="test ADO"
 
@@ -16,7 +16,7 @@ set -x
 # Downloading and preparing SAClientUtil
 if ! [ -x "$(command -v appscan.sh)" ]; then
   echo 'appscan.sh is not installed.  Downloading now..' >&2
-  curl -k  "https://$serviceUrl/api/v4/Tools/SAClientUtil/{id}/{type}?os=linux" > SAClientUtil.zip
+  curl -k  "https://cloud.appscan.com/api/v4/Tools/SAClientUtil/{id}/{type}?os=linux" > SAClientUtil.zip
   ls -l
   unzip SAClientUtil.zip -d . > /dev/null
   rm -f SAClientUtil.zip
