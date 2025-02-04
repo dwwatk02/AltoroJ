@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
-# Downloading and preparing SAClientUtil
+
 
 serviceUrl="cloud.appscan.com"
 asocApiKeyId="4a6dec6b-2ae7-8adb-eff7-a1903dea651c"
 asocApiKeySecret="GzVrXNG/bXvOm35wWOL/oCOkxHdzyZhDyuu6hk8uMIpP"
 appId="4d5b6b9b-ec4c-4f98-b16b-b8390c7fa2d9"
 
+# Downloading and preparing SAClientUtil
 if ! [ -x "$(command -v appscan.sh)" ]; then
   echo 'appscan.sh is not installed.' >&2
-  curl -k  "https://$serviceUrl/api/v4/Tools/SAClientUtil?os=linux" > SAClientUtil.zip
+  curl -k -s "https://$serviceUrl/api/v4/Tools/SAClientUtil?os=linux" > SAClientUtil.zip
   unzip SAClientUtil.zip -d . > /dev/null
   rm -f SAClientUtil.zip
   mv ./SAClientUtil.* ./SAClientUtil
@@ -16,7 +17,7 @@ if ! [ -x "$(command -v appscan.sh)" ]; then
 fi
 
 appscan.sh version
-appscan.sh prepare
+appscan.sh prepare -sco
 
 
 # Authenticate in ASOC
@@ -55,6 +56,7 @@ while true ; do
         exit 1
     else
         echo $scanStatus
+        echo "View scan at https://$serviceUrl/main/myapps/$appId/scans/$scanId/scanOverview"
         break
     fi
     sleep 60
