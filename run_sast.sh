@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
-
+# cloud.appscan
 serviceUrl="cloud.appscan.com"
-asocApiKeyId="4a6dec6b-2ae7-8adb-eff7-a1903dea651c"
-asocApiKeySecret="GzVrXNG/bXvOm35wWOL/oCOkxHdzyZhDyuu6hk8uMIpP"
-appId="4d5b6b9b-ec4c-4f98-b16b-b8390c7fa2d9"
+#asocApiKeyId="4a6dec6b-2ae7-8adb-eff7-a1903dea651c"
+#asocApiKeySecret="GzVrXNG/bXvOm35wWOL/oCOkxHdzyZhDyuu6hk8uMIpP"
+#appId="4d5b6b9b-ec4c-4f98-b16b-b8390c7fa2d9"
+# as.botexam
+serviceUrl="as.botexam.net"
+asocApiKeyId="local_61431386-e780-ad0a-2e80-567f0376cf55"
+asocApiKeyId="aAFZ8thJEdEVKOLyOKZAkm0l83paVMbPFMNilv8OBa6j"
+appId="b77bfb68-e618-4df2-a833-f0a781970b8f"
+scanName="test ADO"
 
 # Downloading and preparing SAClientUtil
 if ! [ -x "$(command -v appscan.sh)" ]; then
