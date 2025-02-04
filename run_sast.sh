@@ -16,7 +16,8 @@ set -x
 # Downloading and preparing SAClientUtil
 if ! [ -x "$(command -v appscan.sh)" ]; then
   echo 'appscan.sh is not installed.  Downloading now..' >&2
-  curl -k  "https://$serviceUrl/api/v4/Tools/SAClientUtil/{id}/{type}?os=linux&meta=false" > SAClientUtil.zip
+  curl -k  "https://$serviceUrl/api/v4/Tools/SAClientUtil/{id}/{type}?os=linux" > SAClientUtil.zip
+  ls -l
   unzip SAClientUtil.zip -d . > /dev/null
   rm -f SAClientUtil.zip
   mv ./SAClientUtil.* ./SAClientUtil
