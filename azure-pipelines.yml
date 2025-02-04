@@ -14,14 +14,12 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- task: Bash@3
+  inputs:
+    targetType: 'filePath'
+    filePath: "$(System.DefaultWorkingDirectory)/run_sast.sh"
 - script: |
-    curl -v -k -X POST --header 'Content-Type:application/json' --header 'Accept:application/json' -d '{"KeyId":"'"local_809e4431-80b4-e2b0-4e1c-6e70e9c96ab8"'","KeySecret":"'"RTVLNg4yDM44ef6meft6YMYdOAH8z15EcMmZ5NQX5FLI"'"}' "https://as.botexam.net/api/v4/Account/ApiKeyLogin"
+    #curl -v -k -X POST --header 'Content-Type:application/json' --header 'Accept:application/json' -d '{"KeyId":"'"local_809e4431-80b4-e2b0-4e1c-6e70e9c96ab8"'","KeySecret":"'"RTVLNg4yDM44ef6meft6YMYdOAH8z15EcMmZ5NQX5FLI"'"}' "https://as.botexam.net/api/v4/Account/ApiKeyLogin"
     echo See https://aka.ms/yaml
   displayName: 'AS360 API login'
 
-- task: HCLAppScanOnCloud@2
-  inputs:
-    AppSecTestService: 'AS360'
-    applications: 'b77bfb68-e618-4df2-a833-f0a781970b8f'
-    scantype: 'static'
-    scanMethod: 'IRX'
