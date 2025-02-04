@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # Downloading and preparing SAClientUtil
 
-serviceUrl = "cloud.appscan.com"
+serviceUrl="cloud.appscan.com"
+asocApiKeyId="4a6dec6b-2ae7-8adb-eff7-a1903dea651c"
+asocApiKeySecret="GzVrXNG/bXvOm35wWOL/oCOkxHdzyZhDyuu6hk8uMIpP"
+
 if ! [ -x "$(command -v appscan.sh)" ]; then
   echo 'appscan.sh is not installed.' >&2
   curl -k  "https://$serviceUrl/api/v4/Tools/SAClientUtil?os=linux" > SAClientUtil.zip
