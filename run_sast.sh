@@ -11,3 +11,4 @@ if ! [ -x "$(command -v appscan.sh)" ]; then
 fi
 
 appscan.sh version
+appscan.sh prepare
