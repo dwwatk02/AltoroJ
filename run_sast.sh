@@ -12,10 +12,11 @@ asocApiKeyId="aAFZ8thJEdEVKOLyOKZAkm0l83paVMbPFMNilv8OBa6j"
 appId="b77bfb68-e618-4df2-a833-f0a781970b8f"
 scanName="test ADO"
 
+set -x
 # Downloading and preparing SAClientUtil
 if ! [ -x "$(command -v appscan.sh)" ]; then
   echo 'appscan.sh is not installed.  Downloading now..' >&2
-  curl -k -s "https://$serviceUrl/api/v4/Tools/SAClientUtil?os=linux" > SAClientUtil.zip
+  curl -k  "https://$serviceUrl/api/v4/Tools/SAClientUtil?os=linux" > SAClientUtil.zip
   unzip SAClientUtil.zip -d . > /dev/null
   rm -f SAClientUtil.zip
   mv ./SAClientUtil.* ./SAClientUtil
