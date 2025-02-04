@@ -8,7 +8,7 @@ appId="4d5b6b9b-ec4c-4f98-b16b-b8390c7fa2d9"
 
 # Downloading and preparing SAClientUtil
 if ! [ -x "$(command -v appscan.sh)" ]; then
-  echo 'appscan.sh is not installed.' >&2
+  echo 'appscan.sh is not installed.  Downloading now..' >&2
   curl -k -s "https://$serviceUrl/api/v4/Tools/SAClientUtil?os=linux" > SAClientUtil.zip
   unzip SAClientUtil.zip -d . > /dev/null
   rm -f SAClientUtil.zip
@@ -17,7 +17,7 @@ if ! [ -x "$(command -v appscan.sh)" ]; then
 fi
 
 appscan.sh version
-appscan.sh prepare -sco
+appscan.sh prepare
 
 
 # Authenticate in ASOC
