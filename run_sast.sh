@@ -16,7 +16,7 @@ scanName="test ADO"
 # Downloading and preparing SAClientUtil
 if ! [ -x "$(command -v appscan.sh)" ]; then
   echo 'appscan.sh is not installed.  Downloading now..' >&2
-  curl -k  "https://96.126.107.12/saclient.zip" > SAClientUtil.zip
+  curl -k  "https://$serviceUrl/api/v4/Tools/SAClientUtil?os=linux" > SAClientUtil.zip
   ls -l
   unzip SAClientUtil.zip -d . > /dev/null
   rm -f SAClientUtil.zip
@@ -38,7 +38,7 @@ fi
 irxFile=$(ls -t *.irx | head -n1)
 # Upload IRX file
 if [ -f "$irxFile" ]; then
-    irxFileId=$(curl -k -s -X 'POST' "https://$serviceUrl/api/v4/FileUpload" -H 'accept:application/json' -H "Authorization:Bearer $asocToken" -H 'Content-Type:multipart/form-data' -F "uploadedFile=@$irxFile" ;#| grep -oP '(?<="FileId":\ ")[^"]*');
+    irxFileId=$(curl -k -s -X 'POST' "https://$serviceUrl/api/v4/FileUpload" -H 'accept:application/json' -H "Authorization:Bearer $asocToken" -H 'Content-Type:multipart/form-data' -F "uploadedFile=@$irxFile") ;#| grep -oP '(?<="FileId":\ ")[^"]*');
     echo "$irxFile exist. It will be uploaded to ASoC. IRX file id is $irxFileId.";
 else
     echo "IRX file not identified.";
