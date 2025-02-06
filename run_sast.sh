@@ -14,20 +14,21 @@ scanName="test ADO"
 
    
 # Downloading and preparing SAClientUtil
-if ! [ -x "$(command -v appscan.sh)" ]; then
-  echo 'appscan.sh is not installed.  Downloading now..' >&2
-  curl -k  "https://$serviceUrl/api/v4/Tools/SAClientUtil?os=linux" > SAClientUtil.zip
-  ls -l
-  unzip SAClientUtil.zip -d . > /dev/null
-  rm -f SAClientUtil.zip
-  mv ./SAClientUtil.* ./SAClientUtil
-  export PATH="./SAClientUtil/bin:${PATH}"
-fi
+#if ! [ -x "$(command -v appscan.sh)" ]; then
+#  echo 'appscan.sh is not installed.  Downloading now..' >&2
+#  curl -k  "https://$serviceUrl/api/v4/Tools/SAClientUtil?os=linux" > SAClientUtil.zip
+#  ls -l
+#  unzip SAClientUtil.zip -d . > /dev/null
+#  rm -f SAClientUtil.zip
+#  mv ./SAClientUtil.* ./SAClientUtil
+#  export PATH="./SAClientUtil/bin:${PATH}"
+#fi
 
 appscan.sh version
-appscan.sh prepare
+#appscan.sh prepare
 
-#zip -r archive.zip src/ WebContent/
+zip -r archive.zip src/ WebContent/
+ls -l
 # Authenticate in ASOC
 asocToken=$(curl -k -s -X POST --header 'Content-Type:application/json' --header 'Accept:application/json' -d '{"KeyId":"'"$asocApiKeyId"'","KeySecret":"'"$asocApiKeySecret"'"}' "https://$serviceUrl/api/v4/Account/ApiKeyLogin" | grep -oP '(?<="Token":\ ")[^"]*');
 if [ -z "$asocToken" ]; then
@@ -35,10 +36,11 @@ if [ -z "$asocToken" ]; then
     exit 1
 fi
 
-irxFile=$(ls -t *.irx | head -n1)
+#irxFile=$(ls -t *.irx | head -n1)
+irxFile="archive.zip"
 # Upload IRX file
 if [ -f "$irxFile" ]; then
-    irxFileId=$(curl -k -s -X 'POST' "https://$serviceUrl/api/v4/FileUpload" -H 'accept:application/json' -H "Authorization:Bearer $asocToken" -H 'Content-Type:multipart/form-data' -F "uploadedFile=@$irxFile") ;#| grep -oP '(?<="FileId":\ ")[^"]*');
+    irxFileId=$(curl -k -s -X 'POST' "https://$serviceUrl/api/v4/FileUpload?fileType=SourceCodeArchive" -H 'accept:application/json' -H "Authorization:Bearer $asocToken" -H 'Content-Type:multipart/form-data' -F "uploadedFile=@$irxFile") ;#| grep -oP '(?<="FileId":\ ")[^"]*');
     echo "$irxFile exist. It will be uploaded to ASoC. IRX file id is $irxFileId.";
 else
     echo "IRX file not identified.";
