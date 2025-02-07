@@ -54,7 +54,8 @@ echo "The scan name is $scanName and scanId is $scanId"
 echo $scanId > scanId.txt
 
 # Check status scan and keep it in loop until Ready status.
-scanStatus=$(curl -k -s -X 'GET' "https://$serviceUrl/api/v4/Scans/Sast/$scanId" -H 'accept:application/json' -H "Authorization:Bearer $asocToken" | jq -r '.LatestExecution | {Status} | join(" ")');
+#scanStatus=$(curl -k -s -X 'GET' "https://$serviceUrl/api/v4/Scans/Sast/$scanId" -H 'accept:application/json' -H "Authorization:Bearer $asocToken" | jq -r '.LatestExecution | {Status} | join(" ")');
+scanStatus = "Ready"
 echo $scanStatus
 while true ; do 
     scanStatus=$(curl -k -s -X 'GET' "https://$serviceUrl/api/v4/Scans/Sast/$scanId" -H 'accept:application/json' -H "Authorization:Bearer $asocToken" | jq -r '.LatestExecution | {Status} | join(" ")');
@@ -67,7 +68,7 @@ while true ; do
     else
         echo $scanStatus
         echo "View scan at https://$serviceUrl/main/myapps/$appId/scans/$scanId/scanOverview"
-        echo "##vso[task.logissue type=error] Build failed due to noncompliance.  View scan at https://$serviceUrl/main/myapps/$appId/scans/$scanId/scanOverview"
+        echo "##vso[task.logissue type=error] Build failed due to noncompliance.  View scan at <a href="https://$serviceUrl/main/myapps/$appId/scans/$scanId/scanOverview">SAST results</a>"
         exit 1
         break
     fi
