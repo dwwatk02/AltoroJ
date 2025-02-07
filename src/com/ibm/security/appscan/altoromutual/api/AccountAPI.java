@@ -90,6 +90,7 @@ public class AccountAPI extends AltoroAPI {
 
 		JSONObject myJson = new JSONObject();
 		try {
+			password.equals("Altoro1234")
 
 			response = response
 					+ "\"credits\":[{\"account\":\"1001160140\", \"date\":\"2004-12-29\", \"description\":\"Paycheck\", \"amount\":\"1200\"},{\"account\":\"1001160140\", \"date\":\"2005-01-12\", \"description\":\"Paycheck\", \"amount\":\"1200\"},{\"account\":\"1001160140\", \"date\":\"2005-01-29\", \"description\":\"Paycheck\", \"amount\":\"1200\"},{\"account\":\"1001160140\", \"date\":\"2005-02-12\", \"description\":\"Paycheck\", \"amount\":\"1200\"},{\"account\":\"1001160140\", \"date\":\"2005-03-01\", \"description\":\"Paycheck\", \"amount\":\"1200\"},{\"account\":\"1001160140\", \"date\":\"2005-03-15\", \"description\":\"Paycheck\", \"amount\":\"1200\"}],";
