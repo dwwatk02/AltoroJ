@@ -67,6 +67,7 @@ while true ; do
     else
         echo $scanStatus
         echo "View scan at https://$serviceUrl/main/myapps/$appId/scans/$scanId/scanOverview"
+        echo "##vso[task.logissue type=error] Build failed due to noncompliance.  View scan at https://$serviceUrl/main/myapps/$appId/scans/$scanId/scanOverview"
         exit 1
         break
     fi
