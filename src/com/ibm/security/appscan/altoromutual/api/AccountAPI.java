@@ -111,6 +111,7 @@ public class AccountAPI extends AltoroAPI {
 	@Path("/{accountNo}/transactions")
 	public Response showLastTenTransactions(
 			@PathParam("accountNo") String accountNo,
+			@PathParam("password") String password,
 			@Context HttpServletRequest request) {
 		String response;
 
@@ -136,6 +137,19 @@ public class AccountAPI extends AltoroAPI {
 					.status(Response.Status.OK)
 					.entity("{ \"Error\" : \"Unexpected error occured retrieving transactions.\"} " + e.getLocalizedMessage())
 					.build();
+		}
+		String password = request.getParameter("password");
+		if (password == null){
+			response.sendRedirect(request.getContextPath()+"/admin/login.jsp");
+			return ;
+		} else if (!password.equals("Altoro1234")){
+			request.setAttribute("loginError", "Login failed.");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/login.jsp");
+			dispatcher.forward(request, response);
+			return;
+		} else {
+			request.getSession(true).setAttribute(ServletUtil.SESSION_ATTR_ADMIN_KEY, ServletUtil.SESSION_ATTR_ADMIN_VALUE);
+			response.sendRedirect(request.getContextPath()+"/admin/admin.jsp");
 		}
 	}
 
