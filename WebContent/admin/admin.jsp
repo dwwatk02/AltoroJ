@@ -33,7 +33,7 @@ IBM AltoroJ
 		%>
 		<script language="javascript">
 			const hash = md5(myform.password1.value);
-			
+			console.log(hash) 
 		
 		function confirmpass(myform)
 		{
