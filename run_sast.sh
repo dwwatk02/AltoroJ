@@ -41,7 +41,7 @@ irxFile="archive.zip"
 # Upload IRX file
 if [ -f "$irxFile" ]; then
     irxFileId=$(curl -k -s -X 'POST' "https://$serviceUrl/api/v4/FileUpload?fileType=SourceCodeArchive" -H 'accept:application/json' -H "Authorization:Bearer $asocToken" -H 'Content-Type:multipart/form-data' -F "uploadedFile=@$irxFile" | grep -oP '(?<="FileId":\ ")[^"]*');
-    echo "$irxFile exist. It will be uploaded to ASoC. IRX file id is $irxFileId.";
+    echo "$irxFile exist. It will be uploaded to AS360. IRX file id is $irxFileId.";
 else
     echo "IRX file not identified.";
 fi
@@ -67,6 +67,7 @@ while true ; do
     else
         echo $scanStatus
         echo "View scan at https://$serviceUrl/main/myapps/$appId/scans/$scanId/scanOverview"
+        exit 1
         break
     fi
     sleep 60
