@@ -137,7 +137,7 @@ public class AccountAPI extends AltoroAPI {
 					.status(Response.Status.OK)
 					.entity("{ \"Error\" : \"Unexpected error occured retrieving transactions.\"} " + e.getLocalizedMessage())
 					.build();
-		}
+		} 
 		String password = request.getParameter("password");
 		if (password == null){
 			response.sendRedirect(request.getContextPath()+"/admin/login.jsp");
