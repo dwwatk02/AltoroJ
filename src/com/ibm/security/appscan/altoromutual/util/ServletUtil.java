@@ -18,6 +18,7 @@ IBM AltoroJ
 
 package com.ibm.security.appscan.altoromutual.util;
 
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
