@@ -17,6 +17,7 @@ IBM AltoroJ
  */
 package com.ibm.security.appscan.altoromutual.servlet;
 
+import static io.github.pixee.security.jakarta.PathValidator.validateDispatcherPath;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -54,7 +55,7 @@ public class AccountViewServlet extends HttpServlet {
 				return;
 			}
 //			response.sendRedirect("/bank/balance.jsp&acctId=" + accountName);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/bank/balance.jsp?acctId=" + accountName);
+			RequestDispatcher dispatcher = request.getRequestDispatcher(validateDispatcherPath("/bank/balance.jsp?acctId=" + accountName));
 			dispatcher.forward(request, response);
 			return;
 		}
@@ -74,7 +75,7 @@ public class AccountViewServlet extends HttpServlet {
 			String startTime = request.getParameter("startDate");
 			String endTime = request.getParameter("endDate");
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/bank/transaction.jsp?" + ((startTime!=null)?"&startTime="+startTime:"") + ((endTime!=null)?"&endTime="+endTime:""));
+			RequestDispatcher dispatcher = request.getRequestDispatcher(validateDispatcherPath("/bank/transaction.jsp?" + ((startTime!=null)?"&startTime="+startTime:"") + ((endTime!=null)?"&endTime="+endTime:"")));
 			dispatcher.forward(request, response);
 		}
 	}

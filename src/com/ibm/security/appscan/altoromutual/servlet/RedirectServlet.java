@@ -17,6 +17,7 @@ IBM AltoroJ
  */
 package com.ibm.security.appscan.altoromutual.servlet;
 
+import static io.github.pixee.security.jakarta.PathValidator.validateDispatcherPath;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -51,7 +52,7 @@ public class RedirectServlet extends HttpServlet {
 		if (url.endsWith(".aspx")) {
 			url = url.substring(0, url.lastIndexOf(".aspx")) + ".jsp";
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		RequestDispatcher dispatcher = request.getRequestDispatcher(validateDispatcherPath(url));
 		dispatcher.forward(request, response);
 	}
 }
