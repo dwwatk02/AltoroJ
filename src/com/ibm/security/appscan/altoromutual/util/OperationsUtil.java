@@ -1,6 +1,7 @@
 package com.ibm.security.appscan.altoromutual.util;
 
 import java.nio.charset.Charset;
+import java.security.SecureRandom;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -145,7 +146,7 @@ public class OperationsUtil {
 	
 	public static String makeRandomString() {
 	    byte[] array = new byte[7]; // length is bounded by 7
-	    new Random().nextBytes(array);
+	    new SecureRandom().nextBytes(array);
 	    String generatedString = new String(array, Charset.forName("UTF-8"));
 	 
 	    return generatedString;
